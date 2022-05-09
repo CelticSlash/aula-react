@@ -12,6 +12,7 @@ export default function PerfilPage(){
     const navigate = useNavigate();
     const { currentUser } = React.useContext(UserContext);
     const image = React.useRef();
+    const [name, setName] = React.useState("");
     const [ updateUser ] = useMutation(UPDATE_USER);
 
     console.log(currentUser);
@@ -22,6 +23,7 @@ export default function PerfilPage(){
         
         updateUser({ variables: {
             id: currentUser.id,
+            name: name,
             image: url
         }});
 
@@ -51,6 +53,7 @@ export default function PerfilPage(){
                 <div>
                     <h1>Meu Perfil</h1>
                     <div style={{ display: 'block'}}>
+                        <input type="text" placeholder='Digite o novo nome' className='form-control my-2 w-50 m-auto' value={name} onChange={(event)=>setName(event.target.value)} />
                         <input type="file"  className='form-control my-2 w-50 m-auto' ref={image}/>
                     </div>
                     <button className="btn btn-primary" onClick={handleClickSalvar}>Salvar</button>
