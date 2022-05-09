@@ -50,8 +50,8 @@ export default function PerfilPage(){
     return(
         <>
             <Layout>
-                <div>
-                    <h1>Meu Perfil</h1>
+                <div className="pt-4">
+                    <h1 className="mb-5">Editar Perfil</h1>
                     <div style={{ display: 'block'}}>
                         <input type="text" placeholder='Digite o novo nome' className='form-control my-2 w-50 m-auto' value={name} onChange={(event)=>setName(event.target.value)} />
                         <input type="file"  className='form-control my-2 w-50 m-auto' ref={image}/>
